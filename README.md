@@ -34,7 +34,7 @@ This is a full-stack Expense Tracker application with a React frontend and a Nod
 
 #### Backend
 
-1. Create a `.env` file in the [backend](http://_vscodecontentref_/0) directory with the following content:
+1. Create a `.env` file in the [backend] directory with the following content:
     ```env
     PORT=8000
     MONGO_URL=<your-mongodb-connection-string>
@@ -52,7 +52,12 @@ The backend server will be available at `http://localhost:8000`.
 
 #### Frontend
 
-1. Start the frontend development server:
+1. Create a `.env` file in the [frontend] directory with the following content:
+    ```env
+    VITE_BACKEND_URL = http://localhost:8000
+    ```
+
+2. Start the frontend development server:
     ```sh
     cd frontend
     npm run dev

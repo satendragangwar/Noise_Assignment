@@ -18,7 +18,8 @@ function ExpenseList({ onLogout }) {
 
     const fetchExpenses = async () => {
         const token = localStorage.getItem('token');
-        let url = 'http://localhost:8000/expenses';
+        let url = `${import.meta.env.VITE_BACKEND_URL}/expenses`;
+        
         const params = new URLSearchParams();
         if (filterCategory) {
             params.append('category', filterCategory);
@@ -58,7 +59,7 @@ function ExpenseList({ onLogout }) {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:8000/expenses', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/expenses`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ function ExpenseList({ onLogout }) {
     const handleDelete = async (id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:8000/expenses/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/expenses/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': token,
@@ -110,7 +111,7 @@ function ExpenseList({ onLogout }) {
     const handleTotalExpenses = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:8000/expenses/total?start=${startDate}&end=${endDate}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/expenses/total?start=${startDate}&end=${endDate}`, {
                 headers: {
                     'Authorization': token,
                 },
